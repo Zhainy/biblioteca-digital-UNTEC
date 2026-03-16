@@ -1,8 +1,10 @@
 :root {
     --app-primary: #0d3b66;
     --app-primary-hover: #0a2e50;
+    --app-primary-soft: #1d4f7f;
     --app-bg-main: #f4f7f6;
     --app-bg-login: #f8f9fa;
+    --app-surface: #ffffff;
 }
 
 * {
@@ -29,6 +31,7 @@ body {
 
 .app-main {
     flex: 1;
+    padding-bottom: 2rem;
 }
 
 /* Mantiene margenes laterales consistentes en las vistas */
@@ -40,11 +43,13 @@ body {
 
 .app-navbar {
     background-color: var(--app-primary) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .app-card {
-    border: none;
+    border: 1px solid rgba(13, 59, 102, 0.08);
     border-radius: 12px;
+    background-color: var(--app-surface);
 }
 
 .login-card {
@@ -70,15 +75,37 @@ body {
     border: none;
 }
 
+.btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
 .btn-primary:hover {
     background-color: var(--app-primary-hover);
+    filter: brightness(1.02);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(13, 59, 102, 0.18);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(13, 59, 102, 0.14);
+}
+
+.btn:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgba(13, 59, 102, 0.25);
 }
 
 .app-footer {
-    margin-top: 2rem;
     background-color: var(--app-primary);
     color: #e9eef2;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.app-footer .footer-meta + .footer-meta {
+    margin-top: 0.25rem;
 }
 
 .footer-title {
