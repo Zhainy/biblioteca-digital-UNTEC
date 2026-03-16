@@ -102,10 +102,11 @@ body {
     background-color: var(--app-primary);
     color: #e9eef2;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 -8px 24px rgba(13, 59, 102, 0.08);
 }
 
 .app-footer .footer-meta + .footer-meta {
-    margin-top: 0.25rem;
+    margin-top: 0.45rem;
 }
 
 .footer-title {
@@ -117,8 +118,33 @@ body {
 .footer-meta {
     color: #e9eef2;
     opacity: 0.95;
+    line-height: 1.7;
 }
 
 .app-footer small {
     color: #e9eef2;
 }
+
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    margin-left: 0.75rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #d7e7f7;
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.footer-link:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.55);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+

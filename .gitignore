@@ -1,5 +1,9 @@
 #Db properties
 database.properties
+src/main/resources/database.properties
+
+# Maven build output
+target/
 
 #IntelliJ IDEA
 .idea/

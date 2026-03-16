@@ -1,7 +1,17 @@
 <footer class="app-footer py-4">
     <div class="container text-center">
-        <small class="footer-meta d-block"><i class="bi bi-book-half me-1"></i>Departamento de Tecnologia Educativa</small>
-        <small class="footer-meta d-block">Creado por Nicole Fernandez</small>
-        <small class="footer-meta d-block"><i class="bi bi-shield-check me-1"></i>Biblioteca Digital UNTEC</small>
+        <small class="footer-meta d-block">
+            <i class="bi bi-book-half me-1"></i>Departamento de Tecnolog&iacute;a Educativa |
+            <i class="bi bi-shield-check me-1"></i>Biblioteca Digital UNTEC
+        </small>
+        <small class="footer-meta d-block">
+            <i class="bi bi-r-circle me-1"></i><%= java.time.Year.now().getValue() %> - Desarrollado por Nicole Fern&aacute;ndez
+            <a class="footer-link" href="https://github.com/Zhainy" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-github me-1"></i>GitHub
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/in/niferng/" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-linkedin me-1"></i>LinkedIn
+            </a>
+        </small>
     </div>
 </footer>

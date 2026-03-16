@@ -1,0 +1,7 @@
+# Copia este archivo como src/main/resources/database.properties para desarrollo local
+# o úsalo fuera del proyecto con APP_DB_CONFIG / -Dapp.db.config
+
+db.url=jdbc:mysql://localhost:3306/biblioteca_untec
+db.user=tu_usuario
+db.password=tu_password
+

@@ -5,8 +5,11 @@ import com.untec.utils.Conexion;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LibroDAOImpl implements ILibroDAO {
+    private static final Logger LOGGER = Logger.getLogger(LibroDAOImpl.class.getName());
 
     @Override
     public List<Libro> listarTodos() {
@@ -27,7 +30,7 @@ public class LibroDAOImpl implements ILibroDAO {
                 listaLibros.add(libro);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error al listar libros", e);
         }
         return listaLibros;
     }
@@ -45,7 +48,7 @@ public class LibroDAOImpl implements ILibroDAO {
 
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error al insertar libro", e);
             return false;
         }
     }
@@ -65,7 +68,7 @@ public class LibroDAOImpl implements ILibroDAO {
 
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error al actualizar libro con id " + libro.getId(), e);
             return false;
         }
     }
@@ -80,7 +83,7 @@ public class LibroDAOImpl implements ILibroDAO {
             ps.setInt(1, id);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error al eliminar libro con id " + id, e);
             return false;
         }
     }
@@ -105,7 +108,7 @@ public class LibroDAOImpl implements ILibroDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error al obtener libro por id " + id, e);
         }
         return libro;
     }

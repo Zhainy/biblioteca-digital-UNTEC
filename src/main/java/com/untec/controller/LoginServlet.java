@@ -2,6 +2,7 @@ package com.untec.controller;
 
 import com.untec.dao.UsuarioDAOImpl;
 import com.untec.model.Usuario;
+import com.untec.utils.CsrfTokenManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +18,12 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Redirigir al formulario de login
+        HttpSession session = request.getSession(false);
+        if (session != null && session.getAttribute("usuarioLogueado") != null) {
+            response.sendRedirect("libros");
+            return;
+        }
+
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
@@ -34,8 +40,14 @@ public class LoginServlet extends HttpServlet {
         Usuario user = usuarioDAO.validar(email, pass);
 
         if (user != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("usuarioLogueado", user);
+            HttpSession oldSession = request.getSession(false);
+            if (oldSession != null) {
+                oldSession.invalidate();
+            }
+
+            HttpSession newSession = request.getSession(true);
+            newSession.setAttribute("usuarioLogueado", user);
+            CsrfTokenManager.getInstance().ensureToken(newSession);
             response.sendRedirect("libros");
         } else {
             request.setAttribute("mensajeError", "Credenciales incorrectas en la base de datos.");

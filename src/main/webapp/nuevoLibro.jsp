@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,6 +57,7 @@
 
                 <form action="libros" method="post">
                     <input type="hidden" name="accion" value="${modoEdicion ? 'actualizar' : 'guardar'}">
+                    <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
                     <c:if test="${modoEdicion}">
                         <input type="hidden" name="id" value="${libro.id}">
                     </c:if>

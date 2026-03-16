@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,7 +34,7 @@
                 <label class="form-label">Correo Institucional</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                    <input type="email" name="email" class="form-control" placeholder="ejemplo@untec.cl" required>
+                    <input type="email" name="email" class="form-control" placeholder="ejemplo@untec.com" required>
                 </div>
             </div>
             <div class="mb-3">
