@@ -1,5 +1,6 @@
 package com.untec.controller;
 
+import com.untec.dao.UsuarioDAOImpl;
 import com.untec.model.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,25 +15,30 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Redirigir al formulario de login
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
+
+    private UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // 1. Recibir datos del formulario
         String email = request.getParameter("email");
         String pass = request.getParameter("password");
 
-        // 2. Simulación de validación
-        if ("admin@untec.com".equals(email) && "1234".equals(pass)) {
-            // 3. Crear sesión de usuario
-            HttpSession session = request.getSession();
-            Usuario usuario = new Usuario(1, "Nicole", email, pass);
-            session.setAttribute("usuarioLogueado", usuario);
+        // VALIDACIÓN
+        Usuario user = usuarioDAO.validar(email, pass);
 
-            // Redirigir al listado de libros si es exitoso
+        if (user != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("usuarioLogueado", user);
             response.sendRedirect("libros");
         } else {
-            // Si falla, volver al login con un mensaje de error
-            request.setAttribute("mensajeError", "Credenciales incorrectas");
+            request.setAttribute("mensajeError", "Credenciales incorrectas en la base de datos.");
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }

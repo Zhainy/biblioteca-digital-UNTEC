@@ -1,0 +1,6 @@
+<footer class="app-footer py-4 mt-2">
+    <div class="container text-center">
+        <small class="footer-meta d-block"> <i class="bi bi-book-half me-1"></i>Departamento de Tecnologia Educativa</small>
+        <small class="footer-meta d-block">Creado por Nicole Fernandez</small>
+    </div>
+</footer>

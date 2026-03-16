@@ -1,0 +1,97 @@
+:root {
+    --app-primary: #0d3b66;
+    --app-primary-hover: #0a2e50;
+    --app-bg-main: #f4f7f6;
+    --app-bg-login: #f8f9fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app-body {
+    font-family: 'Inter', sans-serif;
+}
+
+.app-bg-main {
+    background-color: var(--app-bg-main);
+}
+
+.app-bg-login {
+    background-color: var(--app-bg-login);
+}
+
+.app-main {
+    flex: 1;
+}
+
+/* Mantiene margenes laterales consistentes en las vistas */
+.app-main > .container,
+.app-footer .container,
+.navbar .container {
+    max-width: 1140px;
+}
+
+.app-navbar {
+    background-color: var(--app-primary) !important;
+}
+
+.app-card {
+    border: none;
+    border-radius: 12px;
+}
+
+.login-card {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-container {
+    max-width: 400px;
+    margin-top: 100px;
+}
+
+.brand-icon {
+    font-size: 3rem;
+}
+
+.status-badge {
+    font-size: 0.8rem;
+}
+
+.btn-primary {
+    background-color: var(--app-primary);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--app-primary-hover);
+}
+
+.app-footer {
+    margin-top: 2rem;
+    background-color: var(--app-primary);
+    color: #e9eef2;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-title {
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.footer-meta {
+    color: #e9eef2;
+    opacity: 0.95;
+}
+
+.app-footer small {
+    color: #e9eef2;
+}
